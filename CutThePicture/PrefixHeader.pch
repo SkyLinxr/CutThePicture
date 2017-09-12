@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  CutThePicture
+//
+//  Created by Skylin on 2017/9/1.
+//  Copyright © 2017年 Sky. All rights reserved.
+//
+#import <Availability.h>
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "GJ_Control.h"
+#import "UIView+Toast.h"
+#import "SVProgressHUD.h"
+#import "UIViewController+Utils.h"
+
+
+#endif
+
+//#warning 上线前需要把 1 改成 0
+#if DEBUG  //1显示 0不显示 NSLog 的具体位置
+#define NSLog(FORMAT, ...) fprintf(stderr,"[%s:%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
